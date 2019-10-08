@@ -7,14 +7,14 @@
     <parent>
         <groupId>tech.mhuang</groupId>
         <artifactId>hmtool-ext-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <relativePath>../hmtool-ext-parent/pom.xml</relativePath>
     </parent>
     <groupId>tech.mhuang</groupId>
     <artifactId>hmtool-ext-springboot</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <properties>
-        <hmtool.ext.spring.version>1.0.0</hmtool.ext.spring.version>
+        <hmtool.ext.spring.version>1.1.0</hmtool.ext.spring.version>
         <springboot.version>2.1.5.RELEASE</springboot.version>
     </properties>
     <dependencies>
@@ -33,6 +33,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <version>${springboot.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>
