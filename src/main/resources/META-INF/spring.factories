@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-tech.mhuang.ext.springboot.context.ContextAutoConfiguration
+tech.mhuang.ext.springboot.context.SpringBootExtAutoConfiguration

@@ -2,6 +2,7 @@ package tech.mhuang.ext.springboot.context;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tech.mhuang.core.id.BaseIdeable;
@@ -15,13 +16,14 @@ import tech.mhuang.ext.spring.start.SpringContextHolder;
  * @since 1.0.0
  */
 @Configuration
-@ConditionalOnProperty(prefix = "mhuang.holder", name = "enable", havingValue = "true", matchIfMissing = true)
-public class ContextAutoConfiguration {
+@EnableConfigurationProperties(SpringBootExtProperties.class)
+@ConditionalOnProperty(prefix = "mhuang.springboot", name = "enable", havingValue = "true", matchIfMissing = true)
+public class SpringBootExtAutoConfiguration {
 
     /**
      * create context process tool
      *
-     * @return
+     * @return SpringContextHolder
      */
     @Bean
     @ConditionalOnMissingBean
@@ -32,7 +34,7 @@ public class ContextAutoConfiguration {
     /**
      * create generator id.
      *  default used snowflake
-     * @return
+     * @return BaseIdeable
      */
     @Bean
     @ConditionalOnMissingBean
