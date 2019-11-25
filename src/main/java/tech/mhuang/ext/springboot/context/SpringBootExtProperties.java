@@ -15,4 +15,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class SpringBootExtProperties {
 
     private boolean enable = Boolean.TRUE;
+
+
 }
