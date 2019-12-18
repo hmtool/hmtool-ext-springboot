@@ -62,19 +62,20 @@ public class SpringBootExtAutoConfiguration {
     @ConditionalOnProperty(prefix = "mhuang.springboot.tomcat", name = "enable", havingValue = "true", matchIfMissing = true)
     static class SpringBootTomcatExtProperties{
 
-        private final TomcatExtProperties properties;
+        private final TomcatExtProperties tomcatExtProperties;
 
-        public SpringBootTomcatExtProperties(TomcatExtProperties properties){
-            this.properties = properties;
+        public SpringBootTomcatExtProperties(TomcatExtProperties tomcatExtProperties){
+            this.tomcatExtProperties = tomcatExtProperties;
         }
+
         @Bean
         @ConditionalOnMissingBean
         public MultipartConfigElement multipartConfigElement(){
             MultipartConfigFactory config = new MultipartConfigFactory();
-            config.setMaxFileSize(DataSize.ofMegabytes(properties.getMaxFileSize()));
-            config.setMaxRequestSize(DataSize.ofMegabytes(properties.getMaxRequestSize()));
-            config.setLocation(properties.getFileLocation());
-            config.setFileSizeThreshold(DataSize.ofMegabytes(properties.getFileSizeThreshold()));
+            config.setMaxFileSize(DataSize.ofMegabytes(tomcatExtProperties.getMaxFileSize()));
+            config.setMaxRequestSize(DataSize.ofMegabytes(tomcatExtProperties.getMaxRequestSize()));
+            config.setLocation(tomcatExtProperties.getFileLocation());
+            config.setFileSizeThreshold(DataSize.ofMegabytes(tomcatExtProperties.getFileSizeThreshold()));
             return config.createMultipartConfig();
         }
     }
